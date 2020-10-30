@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.lottiemendixwidget.Lottiemendixwidget" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Lottie-Mendix-Widget</name>
+    <description>My widget description</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+
+        <propertyGroup caption="Data">
+
+           <property key="jsonString" type="attribute" required="false">
+                <caption>Attribute (path)</caption>
+                <description/>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+
+            <property key="jsonUrl" type="string" multiline="false" required="false">
+                <caption>JSON Link</caption>
+                <description></description>
+            </property>
+        </propertyGroup>
+
+         <propertyGroup caption="Controll">
+
+              <property key="loop" type="boolean" defaultValue="true">
+                <caption>Loop Animation</caption>
+                <description></description>
+            </property>
+
+              <property key="width" type="integer" required="true" defaultValue='400'>
+                <caption>Width</caption>
+                <description></description>
+            </property>
+            
+              <property key="height" type="integer" required="true" defaultValue='400'>
+                <caption>Height</caption>
+                <description></description>
+            </property>
+
+        </propertyGroup>
+        </propertyGroup>
+    </properties>
+</widget>
