@@ -19,7 +19,7 @@ const LottieInit = ({
     triggerStart
 }: ExcludedLottiemendixwidgetContainerProps): ReactElement => {
     const { response } = useFetchRemoteJson(jsonUrl);
-    const [autoPlay, setAutoPlay] = useState(false);
+    const [autoPlay, setAutoPlay] = useState<boolean>(false);
 
     useEffect(() => {
         if (triggerStart) {
