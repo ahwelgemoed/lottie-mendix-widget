@@ -26,7 +26,7 @@
     Lottie Implementation for Mendix.
 </p>
 <p align="center">
-    Lottie is any easy way to add beautifull animations to your app. It uses JSON files exported from After Effects. <br> Read more about Lottie 
+    Lottie is an easy way to add beautiful animations to your app. It uses JSON files exported from After Effects. <br> Read more about Lottie 
       <a href="https://airbnb.design/lottie/">here</a> and see the possibilities  <a href="https://lottiefiles.com/">here</a>
 </p>
 

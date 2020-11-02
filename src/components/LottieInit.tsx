@@ -1,4 +1,4 @@
-import { createElement, useEffect, Fragment, useState } from "react";
+import { createElement, useEffect, Fragment, useState, ReactElement } from "react";
 
 import { useLottie, Lottie } from "react-lottie-hook";
 
@@ -17,7 +17,7 @@ const LottieInit = ({
     height,
     onMicroflowComplete,
     triggerStart
-}: ExcludedLottiemendixwidgetContainerProps) => {
+}: ExcludedLottiemendixwidgetContainerProps): ReactElement => {
     const { response } = useFetchRemoteJson(jsonUrl);
     const [autoPlay, setAutoPlay] = useState(false);
 
@@ -48,7 +48,7 @@ const LottieInit = ({
         }
     }, [response]);
 
-    const [lottieRef, {}, controls] = useLottie({
+    const [lottieRef, , controls] = useLottie({
         renderer: "svg",
         autoplay: autoPlay,
         loop,
@@ -58,7 +58,7 @@ const LottieInit = ({
         },
         eventListeners: {
             complete: () => {
-                onMicroflowComplete && onMicroflowComplete.execute();
+                return onMicroflowComplete && onMicroflowComplete.execute();
             }
         }
     });
