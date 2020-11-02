@@ -1,8 +1,8 @@
 {
     "name": "lottiemendixwidget",
     "widgetName": "Lottiemendixwidget",
-    "version": "1.0.1",
-    "description": "My widget description",
+    "version": "1.0.2",
+    "description": "Lottie, an easy way to add beautiful animations to your app. It uses JSON files exported from After Effects.",
     "copyright": "2020 Mendix Technology BV",
     "author": "Arno Welgemoed",
     "config": {
