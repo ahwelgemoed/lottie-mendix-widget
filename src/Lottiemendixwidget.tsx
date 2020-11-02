@@ -7,7 +7,17 @@ import { LottiemendixwidgetContainerProps } from "../typings/LottiemendixwidgetP
 
 export default class Lottiemendixwidget extends Component<LottiemendixwidgetContainerProps> {
     render(): ReactNode {
-        const { jsonUrl, jsonString, loop, width, height } = this.props;
-        return <LottieInit jsonUrl={jsonUrl} jsonString={jsonString} loop={loop} width={width} height={height} />;
+        const { jsonUrl, jsonString, loop, width, height, onMicroflowComplete, triggerStart } = this.props;
+        return (
+            <LottieInit
+                loop={loop}
+                width={width}
+                height={height}
+                jsonUrl={jsonUrl}
+                jsonString={jsonString}
+                triggerStart={triggerStart}
+                onMicroflowComplete={onMicroflowComplete}
+            />
+        );
     }
 }

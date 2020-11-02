@@ -1,4 +1,4 @@
-import { createElement, useEffect, Fragment } from "react";
+import { createElement, useEffect, Fragment, useState } from "react";
 
 import { useLottie, Lottie } from "react-lottie-hook";
 
@@ -9,8 +9,31 @@ import { LottiemendixwidgetContainerProps } from "../../typings/Lottiemendixwidg
 
 type ExcludedLottiemendixwidgetContainerProps = Omit<LottiemendixwidgetContainerProps, "class" | "name" | "tabIndex">;
 
-const LottieInit = ({ jsonUrl, jsonString, loop, width, height }: ExcludedLottiemendixwidgetContainerProps) => {
+const LottieInit = ({
+    jsonUrl,
+    jsonString,
+    loop,
+    width,
+    height,
+    onMicroflowComplete,
+    triggerStart
+}: ExcludedLottiemendixwidgetContainerProps) => {
     const { response } = useFetchRemoteJson(jsonUrl);
+    const [autoPlay, setAutoPlay] = useState(false);
+
+    useEffect(() => {
+        if (triggerStart) {
+            if (triggerStart.value) {
+                setAutoPlay(triggerStart.value);
+                controls.play();
+            } else {
+                setAutoPlay(false);
+                controls.stop();
+            }
+        } else {
+            setAutoPlay(true);
+        }
+    }, [triggerStart]);
 
     useEffect(() => {
         if (jsonString) {
@@ -27,14 +50,18 @@ const LottieInit = ({ jsonUrl, jsonString, loop, width, height }: ExcludedLottie
 
     const [lottieRef, {}, controls] = useLottie({
         renderer: "svg",
-        autoplay: true,
+        autoplay: autoPlay,
         loop,
         rendererSettings: {
             preserveAspectRatio: "xMidYMid slice",
             progressiveLoad: false
+        },
+        eventListeners: {
+            complete: () => {
+                onMicroflowComplete && onMicroflowComplete.execute();
+            }
         }
     });
-
     return (
         <Fragment>
             <Lottie lottieRef={lottieRef} width={width} height={height} />

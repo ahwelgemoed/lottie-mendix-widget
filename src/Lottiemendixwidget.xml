@@ -9,7 +9,6 @@
         <propertyGroup caption="General">
 
         <propertyGroup caption="Data">
-
            <property key="jsonString" type="attribute" required="false">
                 <caption>Attribute (path)</caption>
                 <description/>
@@ -20,12 +19,13 @@
 
             <property key="jsonUrl" type="string" multiline="false" required="false">
                 <caption>JSON Link</caption>
-                <description></description>
+                <description>URL to JSON File</description>
             </property>
+
         </propertyGroup>
 
          <propertyGroup caption="Controll">
-
+         
               <property key="loop" type="boolean" defaultValue="true">
                 <caption>Loop Animation</caption>
                 <description></description>
@@ -41,7 +41,21 @@
                 <description></description>
             </property>
 
+            <property key="triggerStart" type="attribute" required="false">
+                <caption>Start the Animation</caption>
+                <description>If this value is changed from false to true the animation will start playing</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+
+            <property key="onMicroflowComplete" type="action">
+                <caption>On Complete</caption>
+               <description>Trigger action when animation is done (can't be used with loop)</description>
+            </property>
+
         </propertyGroup>
+
         </propertyGroup>
     </properties>
 </widget>

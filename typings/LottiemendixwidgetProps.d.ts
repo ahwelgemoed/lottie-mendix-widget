@@ -4,7 +4,7 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { EditableValue } from "mendix";
+import { ActionValue, EditableValue } from "mendix";
 
 export interface LottiemendixwidgetContainerProps {
     name: string;
@@ -16,6 +16,8 @@ export interface LottiemendixwidgetContainerProps {
     loop: boolean;
     width: number;
     height: number;
+    triggerStart?: EditableValue<boolean>;
+    onMicroflowComplete?: ActionValue;
 }
 
 export interface LottiemendixwidgetPreviewProps {
@@ -26,4 +28,6 @@ export interface LottiemendixwidgetPreviewProps {
     loop: boolean;
     width: number | null;
     height: number | null;
+    triggerStart: string;
+    onMicroflowComplete: {} | null;
 }
